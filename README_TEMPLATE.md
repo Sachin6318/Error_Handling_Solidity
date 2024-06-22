@@ -13,14 +13,15 @@ To run this program, you can use Remix, an online Solidity IDE. To get started, 
 
 Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., HelloWorld.sol). Copy and paste the following code into the file:
 
-// SPDX-License-Identifier: MIT
+
+
+       
+        // SPDX-License-Identifier: MIT
 pragma solidity 0.8.18;
 
 contract Error {
     uint public i = 12;
-    function testRequire(uint _i) public  {
-
-        require(_i > 10, "Input must be greater than 10");
+    function testRequire(uint _i) public  {require(_i > 10, "Input must be greater than 10");
         i = i+10;
 
     }
