@@ -21,21 +21,24 @@ Once you are on the Remix website, create a new file by clicking on the "+" icon
 
      contract Error {
         uint public i = 12;
-        function testRequire(uint _i) public  {require(_i > 10, "Input must be greater than 10");
+        function testRequire(uint _i) public 
+        {
+        require(_i > 10, "Input must be greater than 10");
         i = i+10;
+        }
 
-    }
-
-    function testRevert(uint _i) public  {
+    function testRevert(uint _i) public 
+       {
 
         i=i+10;
         if (_i <= 10) {
             revert("Input must be greater than 10");
         }
-    }
+      }
 
 
-    function testAssert() public {
+    function testAssert() public
+    {
 
         assert(i >= 10);
         i=i+10;
