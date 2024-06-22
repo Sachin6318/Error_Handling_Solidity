@@ -44,7 +44,7 @@ Once you are on the Remix website, create a new file by clicking on the "+" icon
         i=i+10;
     } 
 
-}
+     }
 
 To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set to "0.8.18" (or another compatible version), and then click on the "Compile HelloWorld.sol" button.
 
@@ -54,7 +54,9 @@ Once the contract is deployed, you can interact with it by calling the testrequi
 ## Authors
 
 Sachin Singh
+
 @Sachin17234
+
 sachinsingh6318@gmail.com
 
 
