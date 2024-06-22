@@ -1,4 +1,4 @@
-# Project Title
+# implementation of the require(), assert() and revert() statements.
 
 Simple overview of use/purpose.
 
