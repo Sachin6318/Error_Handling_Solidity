@@ -11,42 +11,53 @@ This program is a simple contract written in Solidity, a programming language us
 Executing program
 To run this program, you can use Remix, an online Solidity IDE. To get started, go to the Remix website at https://remix.ethereum.org/.
 
-Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension (e.g., HelloWorld.sol). Copy and paste the following code into the file:
+Once you are on the Remix website, create a new file by clicking on the "+" icon in the left-hand sidebar. Save the file with a .sol extension. Copy and paste the following code into the file:
 
 
 
        
-        // SPDX-License-Identifier: MIT
-           pragma solidity 0.8.18;
+     // SPDX-License-Identifier: MIT
+     pragma solidity 0.8.18;
 
-     contract Error {
-        uint public i = 12;
-        function testRequire(uint _i) public 
-        {
-        require(_i > 10, "Input must be greater than 10");
-        i = i+10;
+    contract Error {
+    uint public age = 20;
+
+    function testRequire(uint _age) public pure returns (string memory) {
+        require(_age >= 18, "Age must be greater than 18 years to vote");
+        return ("You are eligible to vote");
+    }
+
+    function testRevert(uint _age) public pure returns (string memory) {
+        if (_age <= 18) {
+            revert("Age must be greater than 18 years to vote");
         }
+        return ("You are eligible to vote");
+    }
 
-    function testRevert(uint _i) public 
-       {
+    function testAssert(uint _age) public pure returns (string memory) {
+        assert(_age >= 18);
+        return ("You are eligible to vote");
+    }
 
-        i=i+10;
-        if (_i <= 10) {
-            revert("Input must be greater than 10");
+    function updateAge(uint _newAge) public {
+        age = _newAge;
+    }
+
+    function ageCategory(uint _age) public pure returns (string memory) {
+        if (_age < 13) {
+            return "Child";
+        } else if (_age < 18) {
+            return "Teenager";
+        } else if (_age < 60) {
+            return "Adult";
+        } else {
+            return "Senior";
         }
       }
+    }
 
 
-    function testAssert() public
-    {
-
-        assert(i >= 10);
-        i=i+10;
-    } 
-
-     }
-
-To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set to "0.8.18" (or another compatible version), and then click on the "Compile HelloWorld.sol" button.
+To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set to "0.8.18" (or another compatible version), and then click on the "Compile" button.
 
 Once the code is compiled, you can deploy the contract by clicking on the "Deploy & Run Transactions" tab in the left-hand sidebar. 
 Once the contract is deployed, you can interact with it by calling the testrequire, testrevert, testassert functions.
